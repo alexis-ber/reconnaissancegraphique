@@ -83,7 +83,7 @@ def train_top_model():
     np.save('class_indices.npy', generator_top.class_indices)
 
     # load the bottleneck features saved earlier
-    train_data = np.load('bottleneck_features_train.npy')
+    train_data = np.load('bottleneck_features_train3.npy')
 
     # get the class lebels for the training data, in the original order
     train_labels = generator_top.classes
@@ -101,7 +101,7 @@ def train_top_model():
 
     nb_validation_samples = len(generator_top.filenames)
 
-    validation_data = np.load('bottleneck_features_validation.npy')
+    validation_data = np.load('bottleneck_features_validation3.npy')
 
     validation_labels = generator_top.classes
     validation_labels = to_categorical(
@@ -126,8 +126,8 @@ def train_top_model():
     (eval_loss, eval_accuracy) = model.evaluate(
         validation_data, validation_labels, batch_size=batch_size, verbose=1)
 
-    print("[INFO] accuracy: {:.2f}%".format(eval_accuracy * 100))
-    print("[INFO] Loss: {}".format(eval_loss))
+    #print("[INFO] accuracy: {:.2f}%".format(eval_accuracy * 100))
+    #print("[INFO] Loss: {}".format(eval_loss))
 
     plt.figure(1)
 
