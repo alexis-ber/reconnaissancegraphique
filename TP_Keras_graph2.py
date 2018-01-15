@@ -61,7 +61,7 @@ def train_top_model():
     model.add(Dense(2, activation='sigmoid'))
 
     model.compile(optimizer='rmsprop',
-                  loss='binary_crossentropy', metrics=['accuracy'])
+                  loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
     model.fit(train_data, train_labels,
               epochs=epochs,
